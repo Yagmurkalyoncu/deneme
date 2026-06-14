@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şahnur'un Doğum Günü Manifesti ✨</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            color: #f8fafc;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            perspective: 1000px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 550px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 0 20px rgba(255,255,255,0.05);
+            transform-style: preserve-3d;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #ff007f, #7000ff, #00f0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #94a3b8;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        /* Pasta ve Mum Alanı */
+        .cake-box {
+            font-family: monospace;
+            font-size: 16px;
+            line-height: 1.4;
+            display: inline-block;
+            text-align: left;
+            margin: 20px auto;
+            color: #f1c40f;
+            text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(241, 196, 15, 0.2);
+        }
+
+        /* Kedi ve Manifest Alanı */
+        .cat-container {
+            margin: 20px 0;
+        }
+
+        .cat-container img {
+            width: 180px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .manifest-card {
+            background: rgba(244, 63, 94, 0.1);
+            border-left: 4px solid #f43f5e;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 0 16px 16px 0;
+            text-align: left;
+        }
+
+        .manifest-card h3 {
+            color: #f43f5e;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .manifest-card p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .status-bar {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 300;
+        }
+
+        /* Konfeti Parçacıkları */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0;
+            animation: floatAway 4s linear infinite;
+        }
+
+        @keyframes floatAway {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="card">
+        <h1 id="main-title">Şahnur Dilek Tutuyor...</h1>
+        <p class="subtitle" id="sub-title">Evren Dinlemede ✨</p>
+        
+        <div id="visual-area">
+            <!-- Başlangıç Pastası (Mumlar Yanıyor) -->
+            <div class="cake-box" id="cake">
+       <span style="color: #ff4757; text-shadow: 0 0 10px #ff4757;">i   i   i   i   i</span>
+       <span style="color: #ffa502;">|   |   |   |   |</span>
+     _________________
+    |                 |
+    |    HAPPY bday   |
+    |_________________|
+            </div>
+        </div>
+
+        <div class="status-bar" id="status">✨ Enerji yükleniyor, 3 saniye içinde mumlar üflenecek...</div>
+    </div>
+
+    <script>
+        // Arka plan yıldız/konfeti efektleri
+        function createParticles() {
+            const colors = ['#ff007f', '#00f0ff', '#f1c40f', '#7000ff', '#10b981'];
+            for(let i=0; i<50; i++) {
+                setTimeout(() => {
+                    const p = document.createElement('div');
+                    p.classList.add('particle');
+                    p.style.left = Math.random() * 100 + 'vw';
+                    p.style.top = '100vh';
+                    p.style.width = Math.random() * 8 + 4 + 'px';
+                    p.style.height = p.style.width;
+                    p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    p.style.borderRadius = Math.random() > 0.5 ? '50%' : '0%';
+                    p.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    document.body.appendChild(p);
+                    setTimeout(() => p.remove(), 4000);
+                }, i * 100);
+            }
+        }
+
+        // 3.5 Saniye Sonra Otomatik Kutlama Modu
+        setTimeout(() => {
+            document.getElementById('main-title').innerHTML = "İyi Ki Doğdun Şahnur!";
+            document.getElementById('sub-title').innerHTML = "Yeni Yaşın Kutlu Olsun! 🎉";
+            
+            const visualArea = document.getElementById('visual-area');
+            visualArea.innerHTML = `
+                <!-- Dans Eden Kedi GIF'i -->
+                <div class="cat-container">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW00eXNndmoxY3FmZXd4Znd6Ym1vMms5Y3R3b3E0bWN6bDR3Yms4ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/C9x8gX02SnMIoAClXa/giphy.gif" alt="Dancing Cat">
+                </div>
+
+                <!-- Üflenmiş Dijital Pasta -->
+                <div class="cake-box" style="color: #ff79c6; border-color: #ff79c6;">
+         ✨ * .  🎈 . * ✨
+               * . 🎈
+        
+             (  (  (  (  (      
+             )  )  )  )  )
+           _____________
+          |*📍*📍*📍*📍*|
+        __|_____________|__
+       |                   |
+       | 🍰 IYI KI DOGDUN 🍰 |
+       |___________________|
+                </div>
+
+                <!-- Güçlü Doğum Günü Manifesti -->
+                <div class="manifest-card">
+                    <h3>🔮 Şahnur'un Yeni Yaş Manifesti</h3>
+                    <p>"Bu yıl hayatıma muazzam bir zenginlik, kırılması imkansız bir sağlık ve çılgın başarılar akıyor. Attığım her kod hatasız çalışıyor, girdiğim her ortamda yıldızım parlıyor. Evren benim için en güzel kapıları sonuna kadar açıyor. Ben mutluluğu, parayı ve huzuru bir mıknatıs gibi kendime çekiyorum. Öyle de oldu! ✨"</p>
+                </div>
+            `;
+            
+            document.getElementById('status').innerHTML = "🔮 Manifest onaylandı. Evren Şahnur için harika bir yıl hazırlıyor!";
+            document.getElementById('status').style.color = "#00f0ff";
+            
+            // Efektleri başlat
+            createParticles();
+            setInterval(createParticles, 4000);
+
+        }, 3500);
+    </script>
+</body>
+</html>
